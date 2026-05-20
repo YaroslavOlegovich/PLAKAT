@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>ПЛАКАТ — ЧАВО</title>
+            <style>
+        @import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Inter:wght@400;500;600;700&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg: #fafafa;
+            --card-bg: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #888;
+            --border: #f0f0f0;
+        }
+        
+        body.dark {
+            --bg: #0c0c0c;
+            --card-bg: #1a1a1a;
+            --text: #e0e0e0;
+            --text-muted: #777;
+            --border: #2a2a2a;
+        }
+        
+        body {
+            background: var(--bg);
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .header { background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%); padding: 14px 40px; text-align: center; border-bottom: 1px solid #c62828; }
+        .header h1 { font-family: 'Russo One', sans-serif; font-size: 42px; color: #fff; text-transform: uppercase; margin: 0; }
+        .header p { font-size: 14px; color: rgba(255,255,255,0.9); margin-top: 4px; }
+        .logo { max-height: 70px; margin-bottom: 8px; }
+        
+        .content {
+            flex: 1;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            background: var(--card-bg);
+            border: 5px solid #cc0000;
+            box-shadow: 8px 8px 0 rgba(0,0,0,0.1);
+        }
+        
+        .footer {
+            background: var(--card-bg);
+            border-top: 3px solid #d32f2f;
+            text-align: center;
+            padding: 24px 40px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        .footer a { color: #d32f2f; text-decoration: none; }
+        
+        h2 { font-family: 'Russo One', sans-serif; color: #cc0000; font-size: 28px; border-bottom: 4px solid #000; display: inline-block; margin-top: 30px; text-transform: uppercase; }
+        
+        .faq-item { background: var(--card-bg); border: 1px solid var(--border); border-left: 6px solid #d32f2f; border-radius: 12px; padding: 20px 24px; margin: 16px 0; }
+        .faq-item h3 { color: #d32f2f; margin-bottom: 8px; font-size: 20px; }
+        
+        .btn { background: #d32f2f; color: #fff; border: 2px solid #d32f2f; padding: 12px 28px; font-weight: 600; font-size: 15px; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; }
+        .btn:hover { background: #b71c1c; }
+    </style>
+<script>
+function toggleTheme() {
+    document.body.classList.toggle("dark");
+    localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
+}
+document.addEventListener("DOMContentLoaded", function() {
+    var saved = localStorage.getItem("theme");
+    if (saved === "dark") {
+        document.body.classList.add("dark");
+    }
+});
+</script></head>
+<body>
+    <div class="header">
+        <img src="/static/logo.png" alt="ПЛАКАТ" class="logo">
+        <p>Часто задаваемые вопросы</p>
+    </div>
+    <div class="content">
+        <h2>ЧАВО — ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ</h2>
+
+        <div class="faq-item">
+            <h3>Что такое ПЛАКАТ?</h3>
+            <p>Сервис технического анализа акций Московской биржи. Загружаете CSV-файл — получаете торговую идею с уровнями тейк-профита и стоп-лосса.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Это инвестиционная рекомендация?</h3>
+            <p>Нет. Все сигналы — результат математического анализа. Решение о сделке принимаете вы сами.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Как получить данные для анализа?</h3>
+            <p>Скачайте CSV с <a href="https://www.finam.ru/quote/moex/imoex/export/" target="_blank">finam.ru</a>: тикер, интервал «1 час», период, галочка «Добавить заголовок». Загрузите в личном кабинете.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Сколько стоит?</h3>
+            <p>299 рублей в месяц через Telegram Stars. Без ввода банковских данных.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Есть ли бесплатный период?</h3>
+            <p>Да. Промокод <b>PLAK3</b> на 3 дня бесплатного доступа.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Какие индикаторы используются?</h3>
+            <p>13 индикаторов: RSI, MACD, SMA, Bollinger, Stochastic, CCI, ADX, ATR, EMA, SAR, OBV, Pivot Points, Ichimoku.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Что такое тейк-профит и стоп-лосс?</h3>
+            <p>TP — уровень фиксации прибыли. SL — уровень ограничения убытка. Рассчитываются автоматически.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Можно ли с телефона?</h3>
+            <p>Да. Сайт адаптирован под мобильные устройства.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Как отменить подписку?</h3>
+            <p>Автопродления нет. Подписка действует 30 дней. Для продления оплатите снова.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Куда писать с вопросами?</h3>
+            <p>В Telegram: <a href="https://t.me/PLAKATMOEX_BOT">@PLAKATMOEX_BOT</a>. Отвечаем в течение 24 часов.</p>
+        </div>
+
+        <div style="text-align:center; margin-top:30px;">
+            <a href="/" class="btn">← Вернуться на главную</a>
+        </div>
+    </div>
+    <div class="footer">
+        <p><strong>ПЛАКАТ</strong> — сервис анализа акций Московской биржи.</p>
+        <p>📧 @PLAKATMOEX_BOT | Омск, Россия</p>
+    </div>
+</body>
+</html>
+
