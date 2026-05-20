@@ -14,13 +14,18 @@ sys.excepthook = lambda type, value, tb: sys.stderr.write(''.join(traceback.form
 
 load_dotenv()  # Загружаем переменные из .env
 
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-key-change-in-production')
-
+# СНАЧАЛА создаём приложение
 app = Flask(__name__)
+
+# ПОТОМ настраиваем его
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///moex.db'
-app.config['SECRET_KEY'] = 'supersecretkey'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'supersecretkey')
+
+# Инициализируем базу данных
 db.init_app(app)
 
+# Настройка логина
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
@@ -34,7 +39,7 @@ logging.basicConfig(level=logging.INFO)
 
 # Регистрируем все маршруты
 register_routes(app)
-print("Регистрирую маршруты...")  # ← добавь эту строку
+print("Регистрирую маршруты...")
 
 if __name__ == '__main__':
     with app.app_context():
@@ -50,4 +55,4 @@ if __name__ == '__main__':
             except FileNotFoundError:
                 print("securities.csv не найден")
     print("Сервер запущен: http://127.0.0.1:5000")
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
