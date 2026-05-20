@@ -32,7 +32,7 @@ BASE_CSS = """
     .header h1 { font-family: 'Russo One', sans-serif; font-size: 42px; letter-spacing: 6px; color: #fff; text-transform: uppercase; margin: 0; }
     .header p { font-size: 14px; color: rgba(255,255,255,0.9); margin-top: 4px; font-weight: 500; }
     .logo { max-height: 70px; margin-bottom: 8px; }
-    .nav { background: var(--card-bg); display: flex; justify-content: center; border-bottom: 1px solid var(--border); padding: 0 20px; }
+    .nav { background: var(--card-bg); display: flex; justify-content: center; flex-wrap: wrap; border-bottom: 1px solid var(--border); padding: 0 20px; }
     .nav a { font-family: 'Inter', sans-serif; font-weight: 500; color: var(--text-secondary); text-decoration: none; padding: 16px 24px; font-size: 15px; border-bottom: 2px solid transparent; transition: all 0.2s; }
     .nav a:hover { color: #fff; background: #d32f2f; border-bottom-color: #d32f2f; border-radius: 4px 4px 0 0; }
     .content { flex: 1; max-width: 1200px; width: 100%; margin: 40px auto; padding: 40px; background: var(--card-bg); border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
@@ -80,7 +80,41 @@ BASE_CSS = """
     .tutorial-step { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
     .tutorial-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
     .tutorial-dot.active { background: #d32f2f; }
-    @media (max-width: 768px) { .header { padding: 20px; } .header h1 { font-size: 32px; } .nav { padding: 0 10px; } .nav a { padding: 14px 16px; font-size: 14px; } .content { margin: 20px 10px; padding: 24px; } input { max-width: 100%; } }
+    
+    /* Адаптация под телефоны и планшеты */
+    @media (max-width: 768px) {
+        .header { padding: 12px 20px; }
+        .header h1 { font-size: 28px; letter-spacing: 3px; }
+        .logo { max-height: 45px; }
+        .nav a { padding: 10px 14px; font-size: 13px; }
+        .content { margin: 16px 12px; padding: 20px; }
+        h2 { font-size: 22px; margin-bottom: 16px; }
+        .btn, .btn-outline { padding: 8px 18px; font-size: 13px; }
+        .result-block { padding: 16px; margin-top: 16px; }
+        .portfolio-item, .lecture-item { padding: 14px 16px; }
+        .instruction { padding: 16px; margin-top: 20px; font-size: 14px; }
+        input[type="text"], input[type="email"], input[type="password"] { max-width: 100%; padding: 10px 14px; }
+        .footer { padding: 16px 20px; font-size: 11px; }
+        .footer p { margin: 4px 0; }
+        .collapsible-header:after { font-size: 14px; }
+    }
+    
+    @media (max-width: 480px) {
+        .header h1 { font-size: 22px; letter-spacing: 2px; }
+        .nav a { padding: 8px 10px; font-size: 11px; }
+        .content { margin: 10px 8px; padding: 14px; }
+        h2 { font-size: 18px; }
+        h3 { font-size: 15px; }
+        .btn, .btn-outline { padding: 6px 14px; font-size: 12px; }
+        .result-block { padding: 12px; }
+        .result-block p { font-size: 13px; }
+        .green, .red { font-size: 11px; padding: 2px 8px; }
+        .portfolio-item, .lecture-item { padding: 10px 12px; }
+        .instruction { padding: 12px; font-size: 13px; }
+        .tutorial-card { padding: 20px; max-width: 90%; }
+        .tutorial-card h3 { font-size: 18px; }
+        .tutorial-card p { font-size: 13px; }
+    }
 </style>
 """
 
@@ -114,6 +148,7 @@ document.addEventListener('submit', function(e) {
 </script>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="icon" type="image/png" href="/static/logo.png">
     <meta name="description" content="ПЛАКАТ — сервис технического анализа акций Московской биржи. 13 индикаторов, торговые идеи, тейк-профит и стоп-лосс за 2 секунды.">
     <title>ПЛАКАТ | Теханализ Мосбиржи</title>
@@ -165,7 +200,12 @@ document.addEventListener('submit', function(e) {
 UPLOAD_HTML = """
 <!DOCTYPE html>
 <html>
-<head><title>Загрузка котировок</title>{style}</head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Загрузка котировок</title>
+    {style}
+</head>
 <script>
 function toggleTheme() { document.body.classList.toggle('dark'); localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light'); }
 document.addEventListener('DOMContentLoaded', function() {
