@@ -6,6 +6,11 @@ from backend.routes import register_routes
 import csv
 import os
 from dotenv import load_dotenv
+import sys
+import traceback
+
+# Перехватчик ошибок для логирования на Render
+sys.excepthook = lambda type, value, tb: sys.stderr.write(''.join(traceback.format_exception(type, value, tb)))
 
 load_dotenv()  # Загружаем переменные из .env
 
