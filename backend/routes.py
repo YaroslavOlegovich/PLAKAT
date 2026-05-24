@@ -565,7 +565,7 @@ def register_routes(app):
                 'id': 5,
                 'title': '13 технических индикаторов ПЛАКАТ',
                 'description': 'Какие индикаторы мы используем для анализа: RSI, MACD, SMA, Bollinger, Stochastic, CCI, ADX, ATR, EMA, SAR, OBV, Pivot, Ichimoku.',
-                'video_url': 'https://rutube.ru/video/private/f4840a2f205eab126e8f4df718a6a4f7/?p=255a0ObnNvPe7qVjxHfpdg',
+                'video_url': 'https://rutube.ru/video/f4840a2f205eab126e8f4df718a6a4f7/',
             },
         ]
         

@@ -1,125 +1,145 @@
 ﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="utf-8">
-    <title>ПЛАКАТ — Обработка данных</title>
-        <style>
-        @import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Inter:wght@400;500;600;700&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        :root {
-            --bg: #fafafa;
-            --card-bg: #ffffff;
-            --text: #1a1a1a;
-            --text-muted: #888;
-            --border: #f0f0f0;
-        }
-        
-        body.dark {
-            --bg: #0c0c0c;
-            --card-bg: #1a1a1a;
-            --text: #e0e0e0;
-            --text-muted: #777;
-            --border: #2a2a2a;
-        }
-        
-        body {
-            background: var(--bg);
-            font-family: 'Inter', sans-serif;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            color: var(--text);
-            line-height: 1.6;
-        }
-        
-        .header { background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%); padding: 14px 40px; text-align: center; border-bottom: 1px solid #c62828; }
-        .header h1 { font-family: 'Russo One', sans-serif; font-size: 42px; color: #fff; text-transform: uppercase; margin: 0; }
-        .header p { font-size: 14px; color: rgba(255,255,255,0.9); margin-top: 4px; }
-        .logo { max-height: 70px; margin-bottom: 8px; }
-        
-        .content {
-            flex: 1;
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 40px;
-            background: var(--card-bg);
-            border: 5px solid #cc0000;
-            box-shadow: 8px 8px 0 rgba(0,0,0,0.1);
-        }
-        
-        .footer {
-            background: var(--card-bg);
-            border-top: 3px solid #d32f2f;
-            text-align: center;
-            padding: 24px 40px;
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-        .footer a { color: #d32f2f; text-decoration: none; }
-        
-        h2 { font-family: 'Russo One', sans-serif; color: #cc0000; font-size: 28px; border-bottom: 4px solid #000; display: inline-block; margin-top: 30px; text-transform: uppercase; }
-        
-        .faq-item { background: var(--card-bg); border: 1px solid var(--border); border-left: 6px solid #d32f2f; border-radius: 12px; padding: 20px 24px; margin: 16px 0; }
-        .faq-item h3 { color: #d32f2f; margin-bottom: 8px; font-size: 20px; }
-        
-        .btn { background: #d32f2f; color: #fff; border: 2px solid #d32f2f; padding: 12px 28px; font-weight: 600; font-size: 15px; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; }
-        .btn:hover { background: #b71c1c; }
-    </style>
+<meta charset="utf-8">
+<title>ПЛАКАТ — Согласие на обработку данных</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Inter:wght@400;500;600;700&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --bg: #fafafa; --card-bg: #ffffff; --text: #1a1a1a; --text-muted: #888; --border: #f0f0f0; }
+body.dark { --bg: #0c0c0c; --card-bg: #1a1a1a; --text: #e0e0e0; --text-muted: #777; --border: #2a2a2a; }
+body { background: var(--bg); font-family: 'Inter', sans-serif; display: flex; flex-direction: column; min-height: 100vh; color: var(--text); line-height: 1.6; }
+.header { background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%); padding: 14px 40px; text-align: center; border-bottom: 1px solid #c62828; }
+.header p { font-size: 14px; color: rgba(255,255,255,0.9); margin-top: 4px; }
+.logo { max-height: 70px; margin-bottom: 8px; }
+.content { flex: 1; max-width: 900px; margin: 40px auto; padding: 40px; background: var(--card-bg); border: 5px solid #cc0000; box-shadow: 8px 8px 0 rgba(0,0,0,0.1); }
+.footer { background: var(--card-bg); border-top: 3px solid #d32f2f; text-align: center; padding: 24px 40px; font-size: 13px; color: var(--text-muted); }
+.footer a { color: #d32f2f; text-decoration: none; }
+.footer-links { margin-top: 10px; font-size: 12px; }
+.footer-links a { color: #d32f2f; text-decoration: none; margin: 0 6px; }
+.footer-links a:hover { text-decoration: underline; }
+h2 { font-family: 'Russo One', sans-serif; color: #cc0000; font-size: 24px; border-bottom: 3px solid #000; display: inline-block; margin-top: 28px; margin-bottom: 12px; text-transform: uppercase; }
+p { margin-bottom: 8px; }
+.btn { background: #d32f2f; color: #fff; border: 2px solid #d32f2f; padding: 12px 28px; font-weight: 600; font-size: 15px; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; }
+.btn:hover { background: #b71c1c; }
+.faq-item { background: var(--card-bg); border: 1px solid var(--border); border-left: 6px solid #d32f2f; border-radius: 12px; padding: 20px 24px; margin: 16px 0; }
+.faq-item h3 { color: #d32f2f; margin-bottom: 8px; font-size: 20px; }
+/* БАННЕР СОГЛАСИЯ */
+#consent-banner {
+    display: none;
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+    background: #111; border-top: 3px solid #d32f2f;
+    padding: 18px 40px; align-items: center; justify-content: space-between;
+    gap: 20px; flex-wrap: wrap;
+}
+#consent-banner p { color: #ccc; font-size: 13px; line-height: 1.5; flex: 1; margin: 0; }
+#consent-banner a { color: #d32f2f; }
+#consent-accept {
+    background: #d32f2f; color: #fff; border: none; padding: 10px 28px;
+    font-family: 'Inter', sans-serif; font-weight: 700; font-size: 14px;
+    cursor: pointer; white-space: nowrap; flex-shrink: 0;
+}
+#consent-accept:hover { background: #b71c1c; }
+</style>
+
+
 <script>
 function toggleTheme() {
     document.body.classList.toggle("dark");
     localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
 }
 document.addEventListener("DOMContentLoaded", function() {
-    var saved = localStorage.getItem("theme");
-    if (saved === "dark") {
-        document.body.classList.add("dark");
+    if (localStorage.getItem("theme") === "dark") document.body.classList.add("dark");
+    // Баннер согласия
+    if (!localStorage.getItem("consent_accepted")) {
+        document.getElementById("consent-banner").style.display = "flex";
     }
+    document.getElementById("consent-accept").addEventListener("click", function() {
+        localStorage.setItem("consent_accepted", "1");
+        document.getElementById("consent-banner").style.display = "none";
+    });
 });
-</script></head>
+</script>
+
+</head>
 <body>
-    <div class="header">
-        <img src="/static/logo.png" alt="ПЛАКАТ" class="logo">
-        <p>Согласие на обработку персональных данных</p>
+<div class="header">
+    <img src="/static/logo.png" alt="ПЛАКАТ" class="logo">
+    <p>Согласие на обработку персональных данных</p>
+</div>
+<div class="content">
+
+<h2>Согласие на обработку персональных данных</h2>
+<p><em>Редакция от «24» мая 2026 г.</em></p>
+
+<p>Настоящим, действуя свободно, своей волей и в своём интересе, а также подтверждая свою дееспособность, я (далее — «Пользователь») даю согласие оператору персональных данных на обработку моих персональных данных на следующих условиях.</p>
+
+<h2>1. Оператор персональных данных</h2>
+<p><strong>ИП Славутский Ярослав Олегович</strong><br>
+ИНН: ________________<br>
+ОГРНИП: ________________<br>
+Адрес: ул. В.М.Шукшина, д. 7, Омск<br>
+Email: <a href="mailto:plakat_invest@mail.ru">plakat_invest@mail.ru</a><br>
+Telegram: <a href="https://t.me/PLAKATMOEX_BOT">@PLAKATMOEX_BOT</a></p>
+
+<h2>2. Предмет согласия</h2>
+<p>2.1. Пользователь предоставляет согласие на обработку своих персональных данных сервисом «ПЛАКАТ» в соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных».</p>
+<p>2.2. Согласие считается предоставленным с момента регистрации в Сервисе, использования Сервиса, оформления подписки, взаимодействия с Telegram-ботом или проставления отметки о согласии.</p>
+
+<h2>3. Перечень персональных данных</h2>
+<p>3.1. Оператор вправе обрабатывать: адрес электронной почты, Telegram ID, Telegram username, сведения о подписке, данные о транзакциях в Telegram Stars, IP-адрес, сведения о браузере и устройстве, cookie-файлы, технические журналы.</p>
+<p>3.2. Оператор <strong>не осуществляет</strong> обработку паспортных данных, банковских реквизитов, номеров карт, биометрических и специальных категорий персональных данных.</p>
+
+<h2>4. Цели обработки персональных данных</h2>
+<p>4.1. Регистрация и идентификация Пользователя; предоставление доступа к функциям Сервиса; обеспечение работы подписки; обработка платежей; техническая поддержка; улучшение качества Сервиса; обеспечение безопасности; предотвращение мошенничества; исполнение требований законодательства РФ.</p>
+
+<h2>5. Действия с персональными данными</h2>
+<p>5.1. Пользователь выражает согласие на: сбор, запись, систематизацию, накопление, хранение, уточнение, использование, обезличивание, блокирование, удаление и уничтожение персональных данных.</p>
+
+<h2>6. Передача персональных данных</h2>
+<p>6.1. Оператор не продаёт и не передаёт данные третьим лицам, за исключением случаев, предусмотренных законодательством РФ, и использования инфраструктуры Telegram и технических сервисов.</p>
+
+<h2>7. Защита персональных данных</h2>
+<p>7.1. Оператор принимает необходимые организационные и технические меры для защиты данных от неправомерного доступа, уничтожения, изменения и распространения.</p>
+
+<h2>8. Срок действия согласия</h2>
+<p>8.1. Согласие действует с момента предоставления до достижения целей обработки или до момента его отзыва.</p>
+<p>8.2. Отзыв осуществляется путём направления запроса: Email: <a href="mailto:plakat_invest@mail.ru">plakat_invest@mail.ru</a> | Telegram: <a href="https://t.me/PLAKATMOEX_BOT">@PLAKATMOEX_BOT</a></p>
+<p>8.3. Отзыв может повлечь невозможность дальнейшего использования отдельных функций Сервиса или удаление аккаунта.</p>
+
+<h2>9. Подтверждение согласия</h2>
+<p>9.1. Пользователь подтверждает, что ознакомился с настоящим Согласием и <a href="/privacy">Политикой обработки персональных данных</a>, понимает цели обработки и предоставляет согласие добровольно.</p>
+
+<div style="text-align:center; margin-top:30px;">
+    <a href="/" class="btn">← Вернуться на главную</a>
+</div>
+
+</div>
+
+<div class="footer">
+    <p><strong>ПЛАКАТ</strong> — сервис анализа акций Московской биржи.</p>
+    <p>📧 plakat_invest@mail.ru | <a href="https://t.me/PLAKATMOEX_BOT">@PLAKATMOEX_BOT</a> | Омск, Россия</p>
+    <div class="footer-links">
+        <a href="/about">📖 О продукте</a> |
+        <a href="/oferta">📜 Публичная оферта</a> |
+        <a href="/privacy">🔒 Политика конфиденциальности</a> |
+        <a href="/data-processing">📋 Согласие на обработку данных</a> |
+        <a href="/faq">❓ ЧАВО</a>
     </div>
-    <div class="content">
-        <h2>СОГЛАСИЕ НА ОБРАБОТКУ ПЕРСОНАЛЬНЫХ ДАННЫХ</h2>
+</div>
 
-        <h2>1. Предмет согласия</h2>
-        <p>1.1. Настоящим Пользователь даёт согласие Сервису «ПЛАКАТ» на обработку своих персональных данных в соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных».</p>
-        <p>1.2. Согласие действует с момента регистрации и до момента отзыва согласия Пользователем.</p>
 
-        <h2>2. Перечень обрабатываемых данных</h2>
-        <p>2.1. Адрес электронной почты (email).</p>
-        <p>2.2. Идентификатор Telegram (telegram_id) — при оплате подписки.</p>
-        <p>2.3. Данные о транзакциях в Telegram Stars.</p>
-        <p>2.4. Техническая информация: IP-адрес, тип браузера, время доступа.</p>
+<div id="consent-banner">
+    <p>
+        Используя сайт ПЛАКАТ, вы соглашаетесь с
+        <a href="/oferta">Публичной офертой</a>,
+        <a href="/privacy">Политикой конфиденциальности</a> и
+        <a href="/data-processing">Согласием на обработку персональных данных</a>.
+        Сайт использует cookies для корректной работы.
+    </p>
+    <button id="consent-accept">Принимаю</button>
+</div>
 
-        <h2>3. Цели обработки</h2>
-        <p>3.1. Регистрация и авторизация Пользователя в Сервисе.</p>
-        <p>3.2. Предоставление доступа к функциям Сервиса.</p>
-        <p>3.3. Обработка платежей за подписку.</p>
-        <p>3.4. Обеспечение технической поддержки.</p>
-
-        <h2>4. Способы обработки</h2>
-        <p>4.1. Обработка данных осуществляется с использованием автоматизированных систем.</p>
-        <p>4.2. Данные хранятся в базе данных в зашифрованном виде.</p>
-        <p>4.3. Передача данных третьим лицам не осуществляется, кроме случаев, предусмотренных законодательством РФ.</p>
-
-        <h2>5. Срок действия и отзыв согласия</h2>
-        <p>5.1. Согласие действует бессрочно с момента регистрации.</p>
-        <p>5.2. Пользователь вправе отозвать согласие, направив запрос через Telegram: @PLAKATMOEX_BOT.</p>
-        <p>5.3. Отзыв согласия влечёт удаление аккаунта и всех связанных с ним данных в течение 30 дней.</p>
-
-        <div style="text-align:center; margin-top:30px;">
-            <a href="/" class="btn">← Вернуться на главную</a>
-        </div>
-    </div>
-    <div class="footer">
-        <p><strong>ПЛАКАТ</strong> — сервис анализа акций Московской биржи.</p>
-        <p>📧 @PLAKATMOEX_BOT | Омск, Россия</p>
-    </div>
 </body>
 </html>
-

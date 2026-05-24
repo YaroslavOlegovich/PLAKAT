@@ -1,140 +1,167 @@
 ﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="utf-8">
-    <title>ПЛАКАТ — Публичная оферта</title>
-        <style>
-        @import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Inter:wght@400;500;600;700&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        :root {
-            --bg: #fafafa;
-            --card-bg: #ffffff;
-            --text: #1a1a1a;
-            --text-muted: #888;
-            --border: #f0f0f0;
-        }
-        
-        body.dark {
-            --bg: #0c0c0c;
-            --card-bg: #1a1a1a;
-            --text: #e0e0e0;
-            --text-muted: #777;
-            --border: #2a2a2a;
-        }
-        
-        body {
-            background: var(--bg);
-            font-family: 'Inter', sans-serif;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            color: var(--text);
-            line-height: 1.6;
-        }
-        
-        .header { background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%); padding: 14px 40px; text-align: center; border-bottom: 1px solid #c62828; }
-        .header h1 { font-family: 'Russo One', sans-serif; font-size: 42px; color: #fff; text-transform: uppercase; margin: 0; }
-        .header p { font-size: 14px; color: rgba(255,255,255,0.9); margin-top: 4px; }
-        .logo { max-height: 70px; margin-bottom: 8px; }
-        
-        .content {
-            flex: 1;
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 40px;
-            background: var(--card-bg);
-            border: 5px solid #cc0000;
-            box-shadow: 8px 8px 0 rgba(0,0,0,0.1);
-        }
-        
-        .footer {
-            background: var(--card-bg);
-            border-top: 3px solid #d32f2f;
-            text-align: center;
-            padding: 24px 40px;
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-        .footer a { color: #d32f2f; text-decoration: none; }
-        
-        h2 { font-family: 'Russo One', sans-serif; color: #cc0000; font-size: 28px; border-bottom: 4px solid #000; display: inline-block; margin-top: 30px; text-transform: uppercase; }
-        
-        .faq-item { background: var(--card-bg); border: 1px solid var(--border); border-left: 6px solid #d32f2f; border-radius: 12px; padding: 20px 24px; margin: 16px 0; }
-        .faq-item h3 { color: #d32f2f; margin-bottom: 8px; font-size: 20px; }
-        
-        .btn { background: #d32f2f; color: #fff; border: 2px solid #d32f2f; padding: 12px 28px; font-weight: 600; font-size: 15px; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; }
-        .btn:hover { background: #b71c1c; }
-    </style>
+<meta charset="utf-8">
+<title>ПЛАКАТ — Публичная оферта</title>
+ 
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Inter:wght@400;500;600;700&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --bg: #fafafa; --card-bg: #ffffff; --text: #1a1a1a; --text-muted: #888; --border: #f0f0f0; }
+body.dark { --bg: #0c0c0c; --card-bg: #1a1a1a; --text: #e0e0e0; --text-muted: #777; --border: #2a2a2a; }
+body { background: var(--bg); font-family: 'Inter', sans-serif; display: flex; flex-direction: column; min-height: 100vh; color: var(--text); line-height: 1.6; }
+.header { background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%); padding: 14px 40px; text-align: center; border-bottom: 1px solid #c62828; }
+.header p { font-size: 14px; color: rgba(255,255,255,0.9); margin-top: 4px; }
+.logo { max-height: 70px; margin-bottom: 8px; }
+.content { flex: 1; max-width: 900px; margin: 40px auto; padding: 40px; background: var(--card-bg); border: 5px solid #cc0000; box-shadow: 8px 8px 0 rgba(0,0,0,0.1); }
+.footer { background: var(--card-bg); border-top: 3px solid #d32f2f; text-align: center; padding: 24px 40px; font-size: 13px; color: var(--text-muted); }
+.footer a { color: #d32f2f; text-decoration: none; }
+.footer-links { margin-top: 10px; font-size: 12px; }
+.footer-links a { color: #d32f2f; text-decoration: none; margin: 0 6px; }
+.footer-links a:hover { text-decoration: underline; }
+h2 { font-family: 'Russo One', sans-serif; color: #cc0000; font-size: 24px; border-bottom: 3px solid #000; display: inline-block; margin-top: 28px; margin-bottom: 12px; text-transform: uppercase; }
+p { margin-bottom: 8px; }
+.btn { background: #d32f2f; color: #fff; border: 2px solid #d32f2f; padding: 12px 28px; font-weight: 600; font-size: 15px; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block; }
+.btn:hover { background: #b71c1c; }
+.faq-item { background: var(--card-bg); border: 1px solid var(--border); border-left: 6px solid #d32f2f; border-radius: 12px; padding: 20px 24px; margin: 16px 0; }
+.faq-item h3 { color: #d32f2f; margin-bottom: 8px; font-size: 20px; }
+/* БАННЕР СОГЛАСИЯ */
+#consent-banner {
+    display: none;
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+    background: #111; border-top: 3px solid #d32f2f;
+    padding: 18px 40px; align-items: center; justify-content: space-between;
+    gap: 20px; flex-wrap: wrap;
+}
+#consent-banner p { color: #ccc; font-size: 13px; line-height: 1.5; flex: 1; margin: 0; }
+#consent-banner a { color: #d32f2f; }
+#consent-accept {
+    background: #d32f2f; color: #fff; border: none; padding: 10px 28px;
+    font-family: 'Inter', sans-serif; font-weight: 700; font-size: 14px;
+    cursor: pointer; white-space: nowrap; flex-shrink: 0;
+}
+#consent-accept:hover { background: #b71c1c; }
+</style>
+ 
+ 
 <script>
 function toggleTheme() {
     document.body.classList.toggle("dark");
     localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
 }
 document.addEventListener("DOMContentLoaded", function() {
-    var saved = localStorage.getItem("theme");
-    if (saved === "dark") {
-        document.body.classList.add("dark");
+    if (localStorage.getItem("theme") === "dark") document.body.classList.add("dark");
+    // Баннер согласия
+    if (!localStorage.getItem("consent_accepted")) {
+        document.getElementById("consent-banner").style.display = "flex";
     }
+    document.getElementById("consent-accept").addEventListener("click", function() {
+        localStorage.setItem("consent_accepted", "1");
+        document.getElementById("consent-banner").style.display = "none";
+    });
 });
-</script></head>
+</script>
+ 
+</head>
 <body>
-    <div class="header">
-        <img src="/static/logo.png" alt="ПЛАКАТ" class="logo">
-        <p>Публичная оферта</p>
+<div class="header">
+    <img src="/static/logo.png" alt="ПЛАКАТ" class="logo">
+    <p>Публичная оферта</p>
+</div>
+<div class="content">
+ 
+<h2>Публичная оферта и условия использования сервиса «ПЛАКАТ»</h2>
+<p><em>Редакция от «24» мая 2026 г.</em></p>
+ 
+<h2>1. Общие положения</h2>
+<p>1.1. Настоящий документ является официальным предложением о заключении договора возмездного оказания информационных услуг и в соответствии со статьями 435 и 437 Гражданского кодекса Российской Федерации представляет собой публичную оферту (далее — «Оферта»).</p>
+<p>1.2. Сервис «ПЛАКАТ» предоставляет пользователям доступ к информационным, аналитическим и образовательным материалам, связанным с техническим анализом финансовых инструментов, обращающихся на ПАО «Московская Биржа».</p>
+<p>1.3. Использование Сервиса, регистрация, оплата подписки, использование Telegram-бота @PLAKATMOEX_BOT либо совершение иных действий, свидетельствующих о фактическом использовании Сервиса, означает полное и безоговорочное принятие Пользователем условий настоящей Оферты.</p>
+<p>1.4. Пользователь подтверждает, что ознакомился с условиями Оферты, обладает полной гражданской дееспособностью и достиг возраста 18 лет.</p>
+ 
+<h2>2. Термины и определения</h2>
+<p>2.1. «Сервис» — программно-информационный комплекс «ПЛАКАТ», включая сайт, Telegram-бота, аналитические материалы и иные цифровые элементы.</p>
+<p>2.2. «Пользователь» — физическое лицо, использующее Сервис.</p>
+<p>2.3. «Подписка» — предоставление Пользователю ограниченного по времени доступа к функциям Сервиса на возмездной основе.</p>
+<p>2.4. «Материалы» — аналитические данные, графики, сигналы, уровни, статистика, публикуемые Сервисом.</p>
+ 
+<h2>3. Сервис не является инвестиционной рекомендацией</h2>
+<p>3.1. Информация, размещаемая в Сервисе, носит исключительно информационный, аналитический и образовательный характер.</p>
+<p>3.2. Сервис не осуществляет деятельность инвестиционного советника и не предоставляет индивидуальные инвестиционные рекомендации в значении Федерального закона от 22.04.1996 № 39-ФЗ «О рынке ценных бумаг».</p>
+<p>3.3. Любые торговые идеи, сигналы, уровни TP/SL и иные сведения <strong>не являются</strong> индивидуальной инвестиционной рекомендацией, призывом к сделке или гарантией получения прибыли.</p>
+<p>3.4. Пользователь самостоятельно принимает любые решения, связанные с инвестициями.</p>
+ 
+<h2>4. Ограничение ответственности</h2>
+<p>4.1. Пользователь использует Сервис исключительно на свой риск.</p>
+<p>4.2. Администрация Сервиса не гарантирует достижение финансового результата, прибыльность сделок или отсутствие убытков.</p>
+<p>4.3. Исторические результаты и данные технического анализа не гарантируют аналогичных результатов в будущем.</p>
+<p>4.4. Администрация не несёт ответственности за прямые или косвенные убытки, упущенную выгоду, потери капитала, действия брокеров, бирж или иных третьих лиц.</p>
+<p>4.5. Сервис предоставляется по принципу «как есть» («as is»). Администрация не гарантирует бесперебойную и безошибочную работу Сервиса.</p>
+ 
+<h2>5. Отсутствие доступа к денежным средствам</h2>
+<p>5.1. Сервис не принимает денежные средства Пользователей в доверительное управление, не осуществляет брокерскую, дилерскую или инвестиционно-советническую деятельность.</p>
+<p>5.2. Администрация Сервиса не имеет доступа к банковским картам, счетам и брокерским счетам Пользователей.</p>
+<p>5.3. Все расчёты осуществляются с использованием инфраструктуры Telegram Stars.</p>
+ 
+<h2>6. Подписка и порядок оплаты</h2>
+<p>6.1. Доступ к функциям Сервиса предоставляется на платной основе посредством оформления Подписки.</p>
+<p>6.2. Стоимость Подписки указывается в интерфейсе Сервиса и может быть изменена Администрацией.</p>
+<p>6.3. Оплата осуществляется через Telegram-бота @PLAKATMOEX_BOT с использованием Telegram Stars.</p>
+<p>6.4. Возврат денежных средств осуществляется исключительно в случаях, предусмотренных законодательством РФ или правилами платёжной системы.</p>
+<p>6.5. Активированные промокоды, бонусы и бесплатные периоды обмену и возврату не подлежат.</p>
+<p>6.6. По окончании оплаченного периода доступ к платным функциям прекращается автоматически.</p>
+ 
+<h2>7. Интеллектуальная собственность</h2>
+<p>7.1. Все материалы Сервиса являются объектами интеллектуальной собственности и охраняются законодательством РФ.</p>
+<p>7.2. Без письменного согласия Администрации запрещается копирование материалов, перепродажа доступа, передача аккаунта третьим лицам и использование в коммерческих целях.</p>
+ 
+<h2>8. Блокировка доступа</h2>
+<p>8.1. Администрация вправе ограничить доступ без возврата оплаты при нарушении условий Оферты, распространении материалов Сервиса или использовании в противоправных целях.</p>
+ 
+<h2>9. Персональные данные</h2>
+<p>9.1. Обработка персональных данных осуществляется в соответствии с ФЗ от 27.07.2006 № 152-ФЗ и <a href="/privacy">Политикой конфиденциальности</a>.</p>
+ 
+<h2>10. Изменение условий Оферты</h2>
+<p>10.1. Администрация вправе вносить изменения в Оферту. Новая редакция вступает в силу с момента размещения на сайте.</p>
+<p>10.2. Продолжение использования Сервиса означает согласие с изменениями.</p>
+ 
+<h2>11. Разрешение споров</h2>
+<p>11.1. Споры стороны стремятся урегулировать путём переговоров. В случае невозможности — в соответствии с законодательством РФ.</p>
+ 
+<h2>Реквизиты оператора</h2>
+<p><strong>ИП Славутский Ярослав Олегович</strong><br>
+ИНН: ________________<br>
+ОГРНИП: ________________<br>
+Адрес: ул. В.М.Шукшина, д. 7, Омск<br>
+Email: <a href="mailto:plakat_invest@mail.ru">plakat_invest@mail.ru</a><br>
+Telegram: <a href="https://t.me/PLAKATMOEX_BOT">@PLAKATMOEX_BOT</a></p>
+ 
+<div style="text-align:center; margin-top:30px;">
+    <a href="/" class="btn">← Вернуться на главную</a>
+</div>
+ 
+</div>
+ 
+<div class="footer">
+    <p><strong>ПЛАКАТ</strong> — сервис анализа акций Московской биржи.</p>
+    <p>📧 plakat_invest@mail.ru | <a href="https://t.me/PLAKATMOEX_BOT">@PLAKATMOEX_BOT</a> | Омск, Россия</p>
+    <div class="footer-links">
+        <a href="/about">📖 О продукте</a> |
+        <a href="/oferta">📜 Публичная оферта</a> |
+        <a href="/privacy">🔒 Политика конфиденциальности</a> |
+        <a href="/data-processing">📋 Согласие на обработку данных</a> |
+        <a href="/faq">❓ ЧАВО</a>
     </div>
-    <div class="content">
-        <h2>ПУБЛИЧНАЯ ОФЕРТА И УСЛОВИЯ ИСПОЛЬЗОВАНИЯ СЕРВИСА «ПЛАКАТ»</h2>
-
-        <h2>1. Общие положения</h2>
-        <p>1.1. Настоящий документ является официальной публичной офертой (далее — Оферта) и содержит условия использования аналитического сервиса «ПЛАКАТ» (далее — Сервис).</p>
-        <p>1.2. Сервис предоставляет исключительно информационные и образовательные материалы по техническому анализу финансовых инструментов, торгуемых на ПАО «Московская Биржа».</p>
-        <p>1.3. Использование Сервиса означает полное и безоговорочное принятие настоящих условий.</p>
-
-        <h2>2. Сервис не является инвестиционной рекомендацией</h2>
-        <p>2.1. Вся аналитическая информация, торговые идеи, уровни поддержки/сопротивления, тейк-профит, стоп-лосс и иные материалы, генерируемые Сервисом, <b>не являются индивидуальной инвестиционной рекомендацией</b> (ИИР) в значении Федерального закона от 22.04.1996 № 39-ФЗ «О рынке ценных бумаг».</p>
-        <p>2.2. Сервис не учитывает инвестиционный профиль, финансовое положение, цели, допустимый риск и иные характеристики конкретного пользователя.</p>
-        <p>2.3. Никакая информация, предоставляемая Сервисом, не может рассматриваться как призыв, предложение или совет совершать сделки с ценными бумагами или производными финансовыми инструментами.</p>
-
-        <h2>3. Отказ от ответственности за результаты инвестиций</h2>
-        <p>3.1. Пользователь принимает все торговые и инвестиционные решения <b>самостоятельно и на свой собственный риск</b>.</p>
-        <p>3.2. Сервис не гарантирует прибыльности или безубыточности любых сделок, совершённых на основе полученных материалов.</p>
-        <p>3.3. Администрация Сервиса не несёт ответственности за прямые или косвенные убытки, возникшие в результате использования аналитической информации.</p>
-        <p>3.4. Исторические данные и результаты технического анализа не гарантируют повторения этих результатов в будущем.</p>
-
-        <h2>4. Отсутствие доступа к денежным средствам</h2>
-        <p>4.1. Сервис не принимает денежные средства пользователей для дальнейшего инвестирования, не управляет активами, не осуществляет брокерскую или дилерскую деятельность.</p>
-        <p>4.2. Все платёжные операции проводятся исключительно с использованием сервиса Telegram Stars; администратор Сервиса не имеет доступа к банковским или карточным данным пользователя, а также к его брокерским счетам.</p>
-
-        <h2>5. Порядок оплаты и подписка</h2>
-        <p>5.1. Доступ к расширенным функциям Сервиса предоставляется на платной основе в формате ежемесячной подписки.</p>
-        <p>5.2. Стоимость подписки указывается на сайте Сервиса и может быть изменена с предварительным уведомлением пользователей.</p>
-        <p>5.3. Оплата производится через Telegram бота @PLAKATMOEX_BOT путём оплаты внутренней валюты Telegram Stars.</p>
-        <p>5.4. Возврат средств возможен только в случаях, предусмотренных правилами платёжной системы Telegram. Активированные промокоды возврату не подлежат.</p>
-        <p>5.5. Сервис оставляет за собой право предоставлять промокоды и бесплатные пробные периоды на своё усмотрение.</p>
-
-        <h2>6. Отказ от гарантий</h2>
-        <p>6.1. Сервис предоставляется «как есть». Администрация не гарантирует бесперебойную и безошибочную работу, а также актуальность и полноту предоставляемых данных.</p>
-        <p>6.2. Сервис вправе временно приостановить доступ для технического обслуживания без предварительного уведомления.</p>
-
-        <h2>7. Заключительные положения</h2>
-        <p>7.1. Настоящая Оферта вступает в силу с момента её публикации и действует бессрочно.</p>
-        <p>7.2. Администрация оставляет за собой право вносить изменения в Оферту в одностороннем порядке. Новая редакция вступает в силу с момента её размещения на сайте.</p>
-        <p>7.3. Продолжение использования Сервиса после изменений означает согласие с ними.</p>
-
-        <h2>Реквизиты и контакты</h2>
-        <p>Сервис «ПЛАКАТ»<br>
-        Telegram: @PLAKATMOEX_BOT<br>
-        Омск, Россия</p>
-
-        <div style="text-align:center; margin-top:30px;">
-            <a href="/" class="btn">← Вернуться на главную</a>
-        </div>
-    </div>
-    <div class="footer">
-        <p><strong>ПЛАКАТ</strong> — сервис анализа акций Московской биржи.</p>
-        <p>📧 @PLAKATMOEX_BOT | Омск, Россия</p>
-    </div>
-</body>
-</html>
-
+</div>
+ 
+ 
+<div id="consent-banner">
+    <p>
+        Используя сайт ПЛАКАТ, вы соглашаетесь с
+        <a href="/oferta">Публичной офертой</a>,
+        <a href="/privacy">Политикой конфиденциальности</a> и
+        <a href="/data-processing">Согласием на обработку персональных данных</a>.
+        Сайт использует cookies для корректной работы.
+    </p>
+    <button id="consent-accept">Принимаю</button>
+</div>

@@ -160,11 +160,11 @@ document.addEventListener('submit', function(e) {
     <p>Читай плакат — получай торговую идею</p>
 </div>
     <div class="nav">
-        <a href="/">📈 Анализ</a>
-        <a href="/portfolios">💼 Портфели</a>
-        <a href="/lectures">📚 Лекторий</a>
-        <a href="/team">🚀 О проекте</a>
-        <a href="/news">📰 Новости</a>
+        <a href="/">Анализ</a>
+        <a href="/portfolios">Портфели</a>
+        <a href="/lectures">Лекторий</a>
+        <a href="/team">О проекте</a>
+        <a href="/news">Новости</a>
         {auth_link}
     </div>
     <div id="tutorialOverlay" class="tutorial-overlay" style="display:none;">
@@ -244,5 +244,5 @@ document.addEventListener('DOMContentLoaded', function() {
 """
 
 def render_base(content, title="Главная"):
-    auth_link = '<a href="/profile">👤 Профиль</a>' if current_user.is_authenticated else '<a href="/login">🔐 Войти</a>'
+    auth_link = '<a href="/profile">Профиль</a>' if current_user.is_authenticated else '<a href="/login">🔐 Войти</a>'
     return BASE_TEMPLATE.replace('{style}', BASE_CSS).replace('{content}', content).replace('{title}', title).replace('{auth_link}', auth_link)
